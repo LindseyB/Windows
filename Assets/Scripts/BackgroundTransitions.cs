@@ -2,25 +2,19 @@
 using System.Collections;
 
 public class BackgroundTransitions : MonoBehaviour {
-    private Camera camera;
+    private Camera cameraRef;
 
-    // Use this for initialization
     void Start() {
-        camera = GetComponent<Camera>();
+        cameraRef = GetComponent<Camera>();
         StartCoroutine("ShiftSkyColors");
-    }
-
-    // Update is called once per frame
-    void Update() {
-
     }
 
     private IEnumerator ShiftSkyColors() {
         yield return new WaitForSeconds(37.3f);
-        camera.backgroundColor = new Color32(64, 64, 64, 255);
+        cameraRef.backgroundColor = new Color32(64, 64, 64, 255); // Ohio
         yield return new WaitForSeconds(26.0f);
-        camera.backgroundColor = new Color32(40, 30, 40, 255);
+        cameraRef.backgroundColor = new Color32(40, 30, 40, 255); // Parents
         yield return new WaitForSeconds(23.0f);
-        camera.backgroundColor = new Color32(53, 45, 60, 255);
+        cameraRef.backgroundColor = new Color32(53, 45, 60, 255); // City
     }
 }
